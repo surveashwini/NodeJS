@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Todo list</title>
+    <link href="/assets/styles.css" rel="stylesheet" type="text/css" />
+    <script>
+    
+    function addItem(){
+          var value = document.getElementById("item").value;
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              location.reload();
+            }
+          };
+          xhttp.open("POST", "https://nodejs.ashwinisurve.repl.co/todo", true);
+          xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+          xhttp.send("item="+value);
+    }
+      
+    function deleteItem(index){
+          var deleteUrl = "https://nodejs.ashwinisurve.repl.co/todo/"+ index;
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              location.reload();
+            }
+          };
+          xhttp.open("DELETE", deleteUrl , true);
+          xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+          xhttp.send();
+    }
+    </script>
+  </head>
+  <body>
+    <div id="todo-table">
+      <form>
+        <input type="text" id="item" placeholder="Add new item...">
+        <input type="button" id="addbtn" onclick="addItem()" value="Add Item" /> 
+      </form>
+
+      <ul id="itemlist">
+        <% for(var i=0; i< todos.length; i++){ %>
+        <li onclick="deleteItem(<%= i%>)"><%= todos[i].item%> </li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

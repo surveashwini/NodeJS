@@ -1,0 +1,58 @@
+body {
+	background: #001a33;
+}
+
+#todo-table {
+		margin: 50px;
+	  background: black;
+
+}
+form {
+  padding: 50px;
+  display: flex;
+}
+
+form input {
+	background: #1b1b29;
+  border: none;
+  height: 50px;
+  width: 300px;
+  border-radius: 5px;
+  font-size: 20px;
+  color:white;
+   
+}
+
+form input[type="button"] {
+    height: 50px;
+    background: dimgray;
+    border: 0;
+    border-radius: 5px;
+    width: 100px;
+    margin: 0px;
+    color: #fff;
+}
+
+ul {
+    color: gray;
+    list-style: none;
+    margin: 20px;
+    padding: 20px;
+}
+
+ul li {
+    color: gray;
+    list-style: none;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+ul li:hover {
+  text-decoration: line-through;
+  
+}
+::placeholder {
+	color: white;
+  font-size: 1rem;
+}
